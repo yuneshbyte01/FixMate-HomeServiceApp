@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface ServiceTypeRepository extends JpaRepository<ServiceType, Long> {
 
     Optional<ServiceType> findById(Long id);
+    Optional<ServiceType> findByName(String name);
 }

@@ -258,7 +258,7 @@
             const bookingData = Object.fromEntries(formData.entries());
             
             try {
-                const response = await fetch('http://localhost:8080/api/bookings', {
+                const response = await fetch('http://localhost:8080/api/bookings/public', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
