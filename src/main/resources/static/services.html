@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Service Booking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-tools"></i> Service Booking
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking.html">Book</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-5 fw-bold text-primary mb-3">Our Services</h1>
+                    <p class="lead">Choose from our wide range of professional services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Loading Indicator -->
+            <div id="loadingIndicator" class="text-center py-5">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-3 text-muted">Loading services...</p>
+            </div>
+
+            <!-- Services Grid -->
+            <div id="servicesGrid" class="row" style="display: none;">
+                <!-- Services will be loaded here dynamically -->
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="alert alert-danger" style="display: none;">
+                <h4 class="alert-heading">Unable to load services</h4>
+                <p class="mb-0">Please try again later or contact support if the problem persists.</p>
+            </div>
+
+            <!-- Static Services (Fallback) -->
+            <div id="staticServices" class="row" style="display: none;">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-lightning-fill text-warning mb-3" style="font-size: 3rem;"></i>
+                            <h5 class="card-title">Electrician</h5>
+                            <p class="card-text">Professional electrical services for your home and office.</p>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="bi bi-check-circle text-success"></i> Wiring & Rewiring</li>
+                                <li><i class="bi bi-check-circle text-success"></i> Outlet Installation</li>
+                                <li><i class="bi bi-check-circle text-success"></i> Lighting Repair</li>
+                                <li><i class="bi bi-check-circle text-success"></i> Circuit Breaker Service</li>
+                            </ul>
+                            <a href="booking.html" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-droplet-fill text-info mb-3" style="font-size: 3rem;"></i>
+                            <h5 class="card-title">Plumber</h5>
+                            <p class="card-text">Expert plumbing solutions for all your water and drainage needs.</p>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="bi bi-check-circle text-success"></i> Pipe Repair & Installation</li>
+                                <li><i class="bi bi-check-circle text-success"></i> Drain Cleaning</li>
+                                <li><i class="bi bi-check-circle text-success"></i> Faucet Repair</li>
+                                <li><i class="bi bi-check-circle text-success"></i> Water Heater Service</li>
+                            </ul>
+                            <a href="booking.html" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-hammer text-danger mb-3" style="font-size: 3rem;"></i>
+                            <h5 class="card-title">Carpenter</h5>
+                            <p class="card-text">Skilled carpentry services for furniture and home improvements.</p>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="bi bi-check-circle text-success"></i> Furniture Assembly</li>
+                                <li><i class="bi bi-check-circle text-success"></i> Cabinet Installation</li>
+                                <li><i class="bi bi-check-circle text-success"></i> Door & Window Repair</li>
+                                <li><i class="bi bi-check-circle text-success"></i> Custom Woodwork</li>
+                            </ul>
+                            <a href="booking.html" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-brush-fill text-success mb-3" style="font-size: 3rem;"></i>
+                            <h5 class="card-title">Painter</h5>
+                            <p class="card-text">Professional painting services for interior and exterior spaces.</p>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="bi bi-check-circle text-success"></i> Interior Painting</li>
+                                <li><i class="bi bi-check-circle text-success"></i> Exterior Painting</li>
+                                <li><i class="bi bi-check-circle text-success"></i> Wall Preparation</li>
+                                <li><i class="bi bi-check-circle text-success"></i> Color Consultation</li>
+                            </ul>
+                            <a href="booking.html" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-snow text-primary mb-3" style="font-size: 3rem;"></i>
+                            <h5 class="card-title">HVAC Technician</h5>
+                            <p class="card-text">Heating, ventilation, and air conditioning services.</p>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="bi bi-check-circle text-success"></i> AC Installation & Repair</li>
+                                <li><i class="bi bi-check-circle text-success"></i> Heating System Service</li>
+                                <li><i class="bi bi-check-circle text-success"></i> Duct Cleaning</li>
+                                <li><i class="bi bi-check-circle text-success"></i> Thermostat Installation</li>
+                            </ul>
+                            <a href="booking.html" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-house-fill text-secondary mb-3" style="font-size: 3rem;"></i>
+                            <h5 class="card-title">Cleaner</h5>
+                            <p class="card-text">Professional cleaning services for homes and offices.</p>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="bi bi-check-circle text-success"></i> Deep Cleaning</li>
+                                <li><i class="bi bi-check-circle text-success"></i> Regular Maintenance</li>
+                                <li><i class="bi bi-check-circle text-success"></i> Window Cleaning</li>
+                                <li><i class="bi bi-check-circle text-success"></i> Carpet Cleaning</li>
+                            </ul>
+                            <a href="booking.html" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-primary text-white py-5">
+        <div class="container text-center">
+            <h2 class="mb-4">Ready to Book a Service?</h2>
+            <p class="lead mb-4">Choose your service and get started today!</p>
+            <a href="booking.html" class="btn btn-light btn-lg">
+                <i class="bi bi-calendar-plus"></i> Book Your Service
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Service Booking</h5>
+                    <p class="mb-0">Professional services at your fingertips.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">&copy; 2024 Service Booking. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Function to load services from API
+        async function loadServices() {
+            try {
+                const response = await fetch('http://localhost:8080/api/services');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch services');
+                }
+                const services = await response.json();
+                displayServices(services);
+            } catch (error) {
+                console.error('Error loading services:', error);
+                showError();
+            }
+        }
+
+        // Function to display services
+        function displayServices(services) {
+            const servicesGrid = document.getElementById('servicesGrid');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            
+            loadingIndicator.style.display = 'none';
+            servicesGrid.style.display = 'flex';
+
+            if (services.length === 0) {
+                servicesGrid.innerHTML = '<div class="col-12 text-center"><p class="text-muted">No services available at the moment.</p></div>';
+                return;
+            }
+
+            servicesGrid.innerHTML = services.map(service => `
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-tools text-primary mb-3" style="font-size: 3rem;"></i>
+                            <h5 class="card-title">${service.name}</h5>
+                            <p class="card-text">${service.description || 'Professional service available for booking.'}</p>
+                            <a href="booking.html?service=${encodeURIComponent(service.name)}" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Function to show error and fallback to static services
+        function showError() {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const staticServices = document.getElementById('staticServices');
+            
+            loadingIndicator.style.display = 'none';
+            staticServices.style.display = 'flex';
+        }
+
+        // Load services when page loads
+        document.addEventListener('DOMContentLoaded', loadServices);
+    </script>
+</body>
+</html>
