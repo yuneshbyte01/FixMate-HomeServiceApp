@@ -16,6 +16,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/bookings")
@@ -28,7 +29,7 @@ public class ServiceBookingController {
 
     @PostMapping
     @PreAuthorize("hasRole('ROLE_USER')")
-    public ResponseEntity<?> bookService(@RequestBody ServiceBookingRequestDTO request, Authentication auth) {
+    public ResponseEntity<ServiceBookingResponseDTO> bookService(@RequestBody ServiceBookingRequestDTO request, Authentication auth) {
         String email = auth.getName();
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -45,22 +46,9 @@ public class ServiceBookingController {
                 .status(Status.PENDING)
                 .build();
 
-        ServiceBooking saved = serviceBookingService.bookService(booking);
-
-        ServiceBookingResponseDTO responseDTO = ServiceBookingResponseDTO.builder()
-                .id(saved.getId())
-                .serviceTypeName(saved.getServiceType().getName())
-                .description(saved.getDescription())
-                .bookingDate(saved.getBookingDate())
-                .bookingTime(saved.getBookingTime())
-                .status(saved.getStatus().toString())
-                .createdAt(saved.getCreatedAt().toString())
-                .build();
-
-        return ResponseEntity.ok(responseDTO);
+        ServiceBooking savedBooking = serviceBookingService.bookService(booking);
+        return ResponseEntity.ok(serviceBookingService.convertToDTO(savedBooking));
     }
-
-
 
     @GetMapping("/me")
     @PreAuthorize("hasRole('ROLE_USER')")
@@ -72,19 +60,9 @@ public class ServiceBookingController {
         List<ServiceBooking> bookings = serviceBookingService.getServiceBookingsByUser(user);
 
         List<ServiceBookingResponseDTO> responseDTOs = bookings.stream()
-                .map(booking -> ServiceBookingResponseDTO.builder()
-                        .id(booking.getId())
-                        .serviceTypeName(booking.getServiceType().getName())
-                        .description(booking.getDescription())
-                        .bookingDate(booking.getBookingDate())
-                        .bookingTime(booking.getBookingTime())
-                        .status(booking.getStatus().toString())
-                        .createdAt(booking.getCreatedAt().toString())
-                        .build())
-                .toList();
+                .map(serviceBookingService::convertToDTO)
+                .collect(Collectors.toList());
 
         return ResponseEntity.ok(responseDTOs);
     }
-
-
 }

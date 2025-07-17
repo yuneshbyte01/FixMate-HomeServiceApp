@@ -1,7 +1,9 @@
 package com.fixmate.backend.dto;
 
+import com.fixmate.backend.model.Status;
 import lombok.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Data
@@ -14,6 +16,7 @@ public class ServiceBookingResponseDTO {
     private String description;
     private LocalDate bookingDate;
     private LocalTime bookingTime;
-    private String status;
-    private String createdAt;
+    private Status status;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }
