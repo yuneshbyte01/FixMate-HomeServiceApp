@@ -38,22 +38,33 @@ A backend system built using **Spring Boot** to manage home service requests, al
 
 ## 🛠️ How to Run
 
-### 1. Clone the repo  
-   `git clone https://github.com/yuneshbyte01/FixMate-HomeServiceApp.git`
+### 1. Clone the repo
+`git clone https://github.com/yuneshbyte01/FixMate-HomeServiceApp.git`
 
-### 2. Create MySQL DB:  
-   `CREATE DATABASE fixmate_db;`
+### 2. Create MySQL DB:
+`CREATE DATABASE fixmate_db;`
 
 ### 3. Update `application.properties` with your DB credentials
     spring.datasource.url=jdbc:mysql://localhost:3306/fixmate_db
     spring.datasource.username=your_username
     spring.datasource.password=your_password
 
-### 4. Run the application  
-   `mvn spring-boot:run` or from your IDE
+### 4. Run the application
+`mvn spring-boot:run` or from your IDE
 
-### 5. Test endpoint:  
-   `GET http://localhost:8080/api/ping`
+### 5. Test endpoint:
+`GET http://localhost:8080/api/ping`
+
+---
+
+## 📂 Project Structure (Backend)
+    com.fixmate
+    ├── controller         # REST endpoints (auth, services, bookings)
+    ├── model              # Entity & Enum classes
+    ├── repository         # Spring Data JPA interfaces
+    ├── service            # Business logic
+    ├── security           # Spring Security config and UserDetails
+    └── FixMateApplication.java
 
 ---
 

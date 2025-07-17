@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Service - FixMate</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <i class="bi bi-tools"></i> FixMate
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="services.html">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="booking.html">Book</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<section class="bg-light py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center">
+        <h1 class="display-5 fw-bold text-primary mb-3">Book a Service</h1>
+        <p class="lead">Fill out the form below to request a service booking</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Booking Form Section -->
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <!-- Success Message -->
+        <div id="successMessage" class="alert alert-success" style="display: none;">
+          <h4 class="alert-heading">Booking Submitted Successfully!</h4>
+          <p class="mb-0">Thank you for your booking request. We'll contact you soon to confirm your appointment.</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="alert alert-danger" style="display: none;">
+          <h4 class="alert-heading">Booking Failed</h4>
+          <p class="mb-0">There was an error submitting your booking. Please try again.</p>
+        </div>
+
+        <!-- Booking Form -->
+        <div class="card shadow-sm">
+          <div class="card-header bg-primary text-white">
+            <h4 class="mb-0"><i class="bi bi-calendar-plus"></i> Service Booking Form</h4>
+          </div>
+          <div class="card-body">
+            <form id="bookingForm" action="http://localhost:8080/api/bookings" method="POST">
+              <div class="row">
+                <!-- Customer Information -->
+                <div class="col-md-6">
+                  <h5 class="mb-3 text-primary">Customer Information</h5>
+
+                  <div class="mb-3">
+                    <label for="customerName" class="form-label">Full Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="customerName" name="customerName" required>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="customerEmail" class="form-label">Email Address <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" id="customerEmail" name="customerEmail" required>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="customerPhone" class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control" id="customerPhone" name="customerPhone" placeholder="(555) 123-4567">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="customerAddress" class="form-label">Service Address</label>
+                    <textarea class="form-control" id="customerAddress" name="customerAddress" rows="3" placeholder="Enter the address where service is needed"></textarea>
+                  </div>
+                </div>
+
+                <!-- Service Information -->
+                <div class="col-md-6">
+                  <h5 class="mb-3 text-primary">Service Information</h5>
+
+                  <div class="mb-3">
+                    <label for="serviceType" class="form-label">Service Type <span class="text-danger">*</span></label>
+                    <select class="form-select" id="serviceType" name="serviceType" required>
+                      <option value="">Select a service...</option>
+                      <option value="Electrician">Electrician</option>
+                      <option value="Plumber">Plumber</option>
+                      <option value="Carpenter">Carpenter</option>
+                      <option value="Painter">Painter</option>
+                      <option value="HVAC Technician">HVAC Technician</option>
+                      <option value="Cleaner">Cleaner</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="preferredDate" class="form-label">Preferred Date <span class="text-danger">*</span></label>
+                    <input type="date" class="form-control" id="preferredDate" name="preferredDate" required>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="preferredTime" class="form-label">Preferred Time <span class="text-danger">*</span></label>
+                    <select class="form-select" id="preferredTime" name="preferredTime" required>
+                      <option value="">Select a time...</option>
+                      <option value="08:00">8:00 AM</option>
+                      <option value="09:00">9:00 AM</option>
+                      <option value="10:00">10:00 AM</option>
+                      <option value="11:00">11:00 AM</option>
+                      <option value="12:00">12:00 PM</option>
+                      <option value="13:00">1:00 PM</option>
+                      <option value="14:00">2:00 PM</option>
+                      <option value="15:00">3:00 PM</option>
+                      <option value="16:00">4:00 PM</option>
+                      <option value="17:00">5:00 PM</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="urgency" class="form-label">Urgency Level</label>
+                    <select class="form-select" id="urgency" name="urgency">
+                      <option value="Normal">Normal</option>
+                      <option value="Urgent">Urgent</option>
+                      <option value="Emergency">Emergency</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Additional Information -->
+              <div class="row">
+                <div class="col-12">
+                  <h5 class="mb-3 text-primary">Additional Information</h5>
+
+                  <div class="mb-3">
+                    <label for="serviceDescription" class="form-label">Service Description</label>
+                    <textarea class="form-control" id="serviceDescription" name="serviceDescription" rows="4" placeholder="Please describe the service you need in detail..."></textarea>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="specialRequests" class="form-label">Special Requests or Notes</label>
+                    <textarea class="form-control" id="specialRequests" name="specialRequests" rows="3" placeholder="Any special requirements, access instructions, or additional notes..."></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Form Actions -->
+              <div class="row">
+                <div class="col-12">
+                  <hr class="my-4">
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="button" class="btn btn-outline-secondary me-md-2" onclick="resetForm()">
+                      <i class="bi bi-arrow-clockwise"></i> Reset Form
+                    </button>
+                    <button type="submit" class="btn btn-primary btn-lg">
+                      <i class="bi bi-check-circle"></i> Submit Booking Request
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h5>FixMate</h5>
+        <p class="mb-0">Professional services at your fingertips.</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <p class="mb-0">&copy; 2025 Service Booking. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Set the minimum date today
+  document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('preferredDate').setAttribute('min', today);
+
+    // Check if the service type is passed in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const serviceParam = urlParams.get('service');
+    if (serviceParam) {
+      const serviceSelect = document.getElementById('serviceType');
+      serviceSelect.value = serviceParam;
+    }
+
+    // Load services from API for dropdown
+    loadServicesForDropdown();
+  });
+
+  // Function to load services for dropdown
+  async function loadServicesForDropdown() {
+    try {
+      const response = await fetch('http://localhost:8080/api/services');
+      if (response.ok) {
+        const services = await response.json();
+        const serviceSelect = document.getElementById('serviceType');
+
+        // Clear existing options except the first one
+        serviceSelect.innerHTML = '<option value="">Select a service...</option>';
+
+        // Add services from API
+        services.forEach(service => {
+          const option = document.createElement('option');
+          option.value = service.name;
+          option.textContent = service.name;
+          serviceSelect.appendChild(option);
+        });
+
+        // Reselect service if it was passed in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const serviceParam = urlParams.get('service');
+        if (serviceParam) {
+          serviceSelect.value = serviceParam;
+        }
+      }
+    } catch (error) {
+      console.error('Error loading services for dropdown:', error);
+      // Keep static options if the API fails
+    }
+  }
+
+  // Handle form submission
+  document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const bookingData = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('http://localhost:8080/api/bookings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bookingData)
+      });
+
+      if (response.ok) {
+        showSuccessMessage();
+        setTimeout(() => {
+          window.location.href = 'confirmation.html';
+        }, 2000);
+      } else {
+        throw new Error('Booking submission failed');
+      }
+    } catch (error) {
+      console.error('Error submitting booking:', error);
+      showErrorMessage();
+    }
+  });
+
+  // Show a success message
+  function showSuccessMessage() {
+    const successMsg = document.getElementById('successMessage');
+    const errorMsg = document.getElementById('errorMessage');
+
+    errorMsg.style.display = 'none';
+    successMsg.style.display = 'block';
+
+    // Scroll to the top to show a message
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Show an error message
+  function showErrorMessage() {
+    const successMsg = document.getElementById('successMessage');
+    const errorMsg = document.getElementById('errorMessage');
+
+    successMsg.style.display = 'none';
+    errorMsg.style.display = 'block';
+
+    // Scroll to the top to show a message
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Reset form function
+  function resetForm() {
+    document.getElementById('bookingForm').reset();
+    document.getElementById('successMessage').style.display = 'none';
+    document.getElementById('errorMessage').style.display = 'none';
+
+    // Reset minimum date
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('preferredDate').setAttribute('min', today);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixMate - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .hero-bg {
+            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            position: relative;
+        }
+        .hero-overlay {
+            background: rgba(255,255,255,0.85);
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .fade-in {
+            animation: fadeInUp 1.2s ease;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <i class="bi bi-tools"></i> FixMate
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="booking.html">Book</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section with Background -->
+<section class="hero-bg position-relative py-5">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6 fade-in">
+                <h1 class="display-4 fw-bold text-primary mb-4">
+                    Professional Services at Your Doorstep
+                </h1>
+                <p class="lead mb-4">
+                    Book trusted professionals for all your home service needs.
+                    From electricians to plumbers, we connect you with skilled experts.
+                </p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a href="booking.html" class="btn btn-primary btn-lg px-4 me-md-2">
+                        <i class="bi bi-calendar-check"></i> Book Now
+                    </a>
+                    <a href="services.html" class="btn btn-outline-primary btn-lg px-4">
+                        <i class="bi bi-list-ul"></i> View Services
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center fade-in">
+                <i class="bi bi-house-gear text-primary" style="font-size: 12rem;"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="fw-bold">Why Choose Our Services?</h2>
+                <p class="text-muted">We make it easy to find and book reliable professionals</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="bi bi-shield-check text-primary mb-3" style="font-size: 3rem;"></i>
+                        <h5 class="card-title">Trusted Professionals</h5>
+                        <p class="card-text">All our service providers are verified and experienced professionals.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="bi bi-clock text-primary mb-3" style="font-size: 3rem;"></i>
+                        <h5 class="card-title">Quick Booking</h5>
+                        <p class="card-text">Easy online booking system with flexible scheduling options.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="bi bi-star text-primary mb-3" style="font-size: 3rem;"></i>
+                        <h5 class="card-title">Quality Service</h5>
+                        <p class="card-text">High-quality workmanship guaranteed with customer satisfaction.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="row text-center mb-4">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="fw-bold">What Our Customers Say</h2>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle" width="60" alt="User">
+                        </div>
+                        <p class="card-text">"Booking was super easy and the electrician was very professional. Highly recommended!"</p>
+                        <h6 class="card-title mb-0">- John D.</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="rounded-circle" width="60" alt="User">
+                        </div>
+                        <p class="card-text">"Great service and quick response. The plumber fixed everything perfectly."</p>
+                        <h6 class="card-title mb-0">- Priya S.</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <img src="https://randomuser.me/api/portraits/men/65.jpg" class="rounded-circle" width="60" alt="User">
+                        </div>
+                        <p class="card-text">"Very satisfied with the quality and professionalism. Will use again!"</p>
+                        <h6 class="card-title mb-0">- Alex K.</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="bg-primary text-white py-5">
+    <div class="container text-center">
+        <h2 class="mb-4">Ready to Book a Service?</h2>
+        <p class="lead mb-4">Get started with our simple booking process today!</p>
+        <a href="booking.html" class="btn btn-light btn-lg">
+            <i class="bi bi-calendar-plus"></i> Book Your Service
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>FixMate</h5>
+                <p class="mb-0">Professional services at your fingertips.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <p class="mb-0">&copy; 2025 Service Booking. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<button id="scrollTopBtn" class="btn btn-primary rounded-circle">
+    <i class="bi bi-arrow-up"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Show/hide scroll to the top button
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.onscroll = function() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            scrollBtn.style.display = "block";
+        } else {
+            scrollBtn.style.display = "none";
+        }
+    };
+    scrollBtn.onclick = function() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+</script>
+</body>
+</html>
