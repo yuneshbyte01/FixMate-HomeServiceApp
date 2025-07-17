@@ -3,6 +3,7 @@ package com.fixmate.backend.security;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -27,6 +28,8 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/register", "/api/auth/login").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/services").permitAll()
+                        .requestMatchers("/api/services/**").hasRole("ADMIN")
                         .requestMatchers("/api/auth/test-user").hasRole("USER")
                         .requestMatchers("/api/auth/test-admin").hasRole("ADMIN")
                         .anyRequest().authenticated()
@@ -34,7 +37,6 @@ public class SecurityConfig {
                 .httpBasic(withDefaults());
         return http.build();
     }
-
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
