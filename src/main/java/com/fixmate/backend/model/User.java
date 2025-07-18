@@ -32,6 +32,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role; // e.g., "USER", "ADMIN"
 
+    @Builder.Default
     @Column(name = "is_active", nullable = false)
     private boolean isActive = true; // to indicate if the user is active or not
 }
